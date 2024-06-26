@@ -70,6 +70,8 @@ export default function TasksModal() {
       limitDate: new Date(),
     });
   };
+
+  const limitDate = new Date(todo.limitDate)
   return (
     <Modal
       dismissible
@@ -107,7 +109,7 @@ export default function TasksModal() {
               language="es-PE"
               labelTodayButton="Hoy"
               labelClearButton="Limpar"
-              value={formatDate(todo.limitDate.toDateString())}
+              value={formatDate(limitDate.toDateString())}
               onSelectedDateChanged={handleChangeDate}
             />
           </div>
