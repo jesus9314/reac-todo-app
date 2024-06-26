@@ -10,6 +10,10 @@ export default function App() {
   const [filteredTodo, setFilteredTodo] = useState<Task[]>([]);
 
   useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(state.todos));
+  }, [state]);
+
+  useEffect(() => {
     let filtered = state.todos;
     if (state.currentState !== "") {
       const filterState = state.currentState === true;

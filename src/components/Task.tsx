@@ -15,6 +15,8 @@ export default function Task({ task }: TodoProps) {
     const className = "capitalize text-slate-500";
     return task.state ? `${className} line-through` : className;
   };
+
+  const limitDate = new Date(task.limitDate)
   return (
     <div className="bg-white p-4 flex justify-between">
       <div className="flex gap-4 items-center">
@@ -29,7 +31,7 @@ export default function Task({ task }: TodoProps) {
           <p className={getNameClass()}>{task.name}</p>
           <p className="capitalize">
             <span className="font-semibold">Límite: </span>
-            {formatDate(task.limitDate.toDateString())}
+            {formatDate(limitDate.toDateString())}
           </p>
         </div>
       </div>

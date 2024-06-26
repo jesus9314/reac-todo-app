@@ -21,9 +21,14 @@ export type todoState = {
   currentState: boolean | string;
 };
 
+const initialTodos = (): Task[] => {
+  const localStorageTodos = localStorage.getItem("todos");
+  return localStorageTodos ? JSON.parse(localStorageTodos) : [];
+};
+
 //3. creamos el estado inicial
 export const initialState: todoState = {
-  todos: [],
+  todos: initialTodos(),
   modal: false,
   editingId: "",
   currentState: "",
